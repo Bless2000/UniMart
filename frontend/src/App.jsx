@@ -132,7 +132,7 @@ export default function App() {
               <div className="cart-drawer-footer">
                 <div className="cart-subtotal-row">
                   <span>Subtotal</span>
-                  <span className="subtotal-val">${calculateSubtotal()}</span>
+                  <span className="subtotal-val">GH₵{calculateSubtotal()}</span>
                 </div>
                 <button 
                   className="btn-primary btn-checkout"

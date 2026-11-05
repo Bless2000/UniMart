@@ -21,9 +21,9 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
     {
       id: 1,
       name: 'Smart Watch Series 8',
-      price: '$199.99',
+      price: 'GH₵199.99',
       numericPrice: 199.99,
-      originalPrice: '$249.99',
+      originalPrice: 'GH₵249.99',
       rating: 5,
       ratingCount: 128,
       img: '/images/prod-watch.png',
@@ -33,9 +33,9 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
     {
       id: 2,
       name: 'Noise Cancelling Headphones',
-      price: '$129.99',
+      price: 'GH₵129.99',
       numericPrice: 129.99,
-      originalPrice: '$169.99',
+      originalPrice: 'GH₵169.99',
       rating: 5,
       ratingCount: 96,
       img: '/images/prod-headphones.png',
@@ -45,9 +45,9 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
     {
       id: 3,
       name: 'Sport Running Shoes',
-      price: '$79.99',
+      price: 'GH₵79.99',
       numericPrice: 79.99,
-      originalPrice: '$99.99',
+      originalPrice: 'GH₵99.99',
       rating: 5,
       ratingCount: 152,
       img: '/images/prod-shoes.png',
@@ -57,9 +57,9 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
     {
       id: 4,
       name: 'Travel Backpack',
-      price: '$49.99',
+      price: 'GH₵49.99',
       numericPrice: 49.99,
-      originalPrice: '$69.99',
+      originalPrice: 'GH₵69.99',
       rating: 4,
       ratingCount: 88,
       img: '/images/prod-backpack.png',
@@ -69,9 +69,9 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
     {
       id: 5,
       name: "Men's Hoodie",
-      price: '$39.99',
+      price: 'GH₵39.99',
       numericPrice: 39.99,
-      originalPrice: '$59.99',
+      originalPrice: 'GH₵59.99',
       rating: 5,
       ratingCount: 112,
       img: '/images/shop-hoodie.png',
@@ -81,9 +81,9 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
     {
       id: 6,
       name: 'iPhone 14 Pro Max',
-      price: '$999.99',
+      price: 'GH₵999.99',
       numericPrice: 999.99,
-      originalPrice: '$1,099.99',
+      originalPrice: 'GH₵1,099.99',
       rating: 5,
       ratingCount: 76,
       img: '/images/shop-iphone.png',
@@ -93,9 +93,9 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
     {
       id: 7,
       name: 'Premium Fragrance Set',
-      price: '$29.99',
+      price: 'GH₵29.99',
       numericPrice: 29.99,
-      originalPrice: '$49.99',
+      originalPrice: 'GH₵49.99',
       rating: 4,
       ratingCount: 64,
       img: '/images/shop-fragrance.png',
@@ -105,9 +105,9 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
     {
       id: 8,
       name: 'Wireless Game Controller',
-      price: '$59.99',
+      price: 'GH₵59.99',
       numericPrice: 59.99,
-      originalPrice: '$79.99',
+      originalPrice: 'GH₵79.99',
       rating: 5,
       ratingCount: 97,
       img: '/images/shop-controller.png',
@@ -117,9 +117,9 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
     {
       id: 9,
       name: 'Sony Alpha a7 III Camera',
-      price: '$1,299.99',
+      price: 'GH₵1,299.99',
       numericPrice: 1299.99,
-      originalPrice: '$1,499.99',
+      originalPrice: 'GH₵1,499.99',
       rating: 5,
       ratingCount: 38,
       img: '/images/shop-camera.png',
@@ -129,9 +129,9 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
     {
       id: 10,
       name: 'Wireless Earbuds',
-      price: '$49.99',
+      price: 'GH₵49.99',
       numericPrice: 49.99,
-      originalPrice: '$69.99',
+      originalPrice: 'GH₵69.99',
       rating: 4,
       ratingCount: 85,
       img: '/images/shop-earbuds.png',
@@ -141,9 +141,9 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
     {
       id: 11,
       name: 'LED Desk Lamp',
-      price: '$24.99',
+      price: 'GH₵24.99',
       numericPrice: 24.99,
-      originalPrice: '$39.99',
+      originalPrice: 'GH₵39.99',
       rating: 4,
       ratingCount: 54,
       img: '/images/shop-lamp.png',
@@ -153,9 +153,9 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
     {
       id: 12,
       name: 'Luxury Watch',
-      price: '$149.99',
+      price: 'GH₵149.99',
       numericPrice: 149.99,
-      originalPrice: '$199.99',
+      originalPrice: 'GH₵199.99',
       rating: 5,
       ratingCount: 62,
       img: '/images/shop-luxury-watch.png',
@@ -290,7 +290,7 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
               </div>
               <div className="promo-texts">
                 <h4>Free Delivery</h4>
-                <p>On all orders over $50</p>
+                <p>On all orders over GH₵50</p>
               </div>
             </div>
             <img 
@@ -355,8 +355,8 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
                 className="price-range-slider"
               />
               <div className="price-slider-values">
-                <span>$10</span>
-                <span className="active-price-val">${priceRange}</span>
+                <span>GH₵10</span>
+                <span className="active-price-val">GH₵{priceRange}</span>
               </div>
             </div>
           </div>
@@ -488,7 +488,7 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
               )}
               {priceRange < 1500 && (
                 <span className="filter-chip">
-                  Under ${priceRange}
+                  Under GH₵{priceRange}
                   <button onClick={() => setPriceRange(1500)} className="chip-remove">✕</button>
                 </span>
               )}

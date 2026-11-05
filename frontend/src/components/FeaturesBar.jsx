@@ -21,7 +21,7 @@ export default function FeaturesBar() {
           </div>
           <div className="feature-info">
             <h4 className="feature-title">Free Delivery</h4>
-            <p className="feature-subtitle">On orders over $50</p>
+            <p className="feature-subtitle">On orders over GH₵50</p>
           </div>
         </div>
 

@@ -20,32 +20,32 @@ export default function HomePage({ onNavigate, onAddToCart, wishlist, onToggleWi
     {
       id: 1,
       name: 'Smart Watch Series 8',
-      price: '$199.99',
-      originalPrice: '$249.99',
+      price: 'GH₵199.99',
+      originalPrice: 'GH₵249.99',
       ratingCount: 128,
       img: '/images/prod-watch.png'
     },
     {
       id: 2,
       name: 'Noise Cancelling Headphones',
-      price: '$129.99',
-      originalPrice: '$169.99',
+      price: 'GH₵129.99',
+      originalPrice: 'GH₵169.99',
       ratingCount: 96,
       img: '/images/prod-headphones.png'
     },
     {
       id: 3,
       name: 'Sport Running Shoes',
-      price: '$79.99',
-      originalPrice: '$99.99',
+      price: 'GH₵79.99',
+      originalPrice: 'GH₵99.99',
       ratingCount: 152,
       img: '/images/prod-shoes.png'
     },
     {
       id: 4,
       name: 'Travel Backpack',
-      price: '$49.99',
-      originalPrice: '$69.99',
+      price: 'GH₵49.99',
+      originalPrice: 'GH₵69.99',
       ratingCount: 88,
       img: '/images/prod-backpack.png'
     }
