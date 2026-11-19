@@ -1,9 +1,11 @@
 import React from 'react';
 import FeaturesBar from '../components/FeaturesBar';
 import { CircleArrowRight, TagIcon, ArrowRight } from '../components/Icons';
+import { services } from '../data/catalog';
 
 export default function CategoriesPage({ onNavigate }) {
   const allCategories = [
+    { id: 'services', name: 'Services', count: services.length, emoji: '🛠️' },
     { id: 'phones', name: 'Phones & Tablets', count: 24, img: '/images/cat-phones.png' },
     { id: 'electronics', name: 'Electronics', count: 18, img: '/images/cat-electronics.png' },
     { id: 'fashion', name: 'Fashion', count: 22, img: '/images/cat-fashion.png' },
@@ -55,16 +57,22 @@ export default function CategoriesPage({ onNavigate }) {
             <div 
               key={cat.id} 
               className="catalog-category-card"
-              onClick={() => onNavigate('shop')}
+              onClick={() => onNavigate(cat.id === 'services' ? 'home' : 'shop', cat.id === 'services' ? 'services' : null)}
             >
               <div className="catalog-img-container">
                 <div className="catalog-img-glow"></div>
-                <img src={cat.img} alt={cat.name} className="catalog-cat-thumb" />
+                {cat.img ? (
+                  <img src={cat.img} alt={cat.name} className="catalog-cat-thumb" />
+                ) : (
+                  <span className="catalog-cat-emoji">{cat.emoji}</span>
+                )}
               </div>
 
               <div className="catalog-info-wrap">
                 <h3 className="catalog-cat-name">{cat.name}</h3>
-                <span className="catalog-cat-count">{cat.count} Products</span>
+                <span className="catalog-cat-count">
+                  {cat.count} {cat.id === 'services' ? 'Services' : 'Products'}
+                </span>
                 <div className="catalog-arrow-btn">
                   <CircleArrowRight />
                 </div>

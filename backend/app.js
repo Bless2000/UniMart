@@ -11,9 +11,15 @@
 
   const app = express();
 
-  // CORS: allow the Vite frontend (dev origin) to reach the API
+  // CORS: allow the Vite dev frontend from both localhost and 127.0.0.1.
+  const allowedOrigins = [
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    ...(process.env.CORS_ORIGINS || '').split(',').map((origin) => origin.trim()).filter(Boolean),
+  ];
+
   app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: allowedOrigins,
     credentials: true
   }));
   app.use(express.json());

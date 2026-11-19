@@ -7,7 +7,7 @@ const users = `
 CREATE TABLE users(
       id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
       full_name VARCHAR(255) NOT NULL,
-      username VARCHAR(255) NOT NULL UNIQUE,
+      username VARCHAR(255) UNIQUE,
       email VARCHAR(255) NOT NULL UNIQUE,
       school_id VARCHAR(100) NOT NULL UNIQUE,
       role role_enum NOT NULL,

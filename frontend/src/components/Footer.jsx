@@ -1,25 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   BadgeQuality, BadgePrices, BadgeDeals,
   FacebookIcon, TwitterIcon, InstagramIcon, YoutubeIcon 
 } from './Icons';
 
-export default function Footer({ onNavigate, triggerToast }) {
-  const [email, setEmail] = useState('');
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (!email || !email.includes('@')) {
-      triggerToast('Please enter a valid email address.');
-      return;
-    }
-    triggerToast('Thank you for subscribing to UniMart newsletter!');
-    setEmail('');
-  };
-
+export default function Footer({ onNavigate }) {
   return (
     <footer className="footer-container">
-      {/* Top Badges & Newsletter Row */}
+      {/* Top Badges Row */}
       <div className="footer-top-row">
         <div className="footer-badges-col">
           <div className="footer-badge-item">
@@ -52,24 +40,6 @@ export default function Footer({ onNavigate, triggerToast }) {
             </div>
           </div>
         </div>
-
-        <div className="footer-newsletter-col">
-          <h4 className="newsletter-title">Subscribe to our newsletter</h4>
-          <p className="newsletter-subtitle">Get the latest updates and offers</p>
-          <form className="newsletter-form" onSubmit={handleSubscribe}>
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="newsletter-input"
-              required
-            />
-            <button type="submit" className="newsletter-submit-btn">
-              Subscribe
-            </button>
-          </form>
-        </div>
       </div>
 
       {/* Middle Columns (from About Us & Contact Us design) */}
@@ -101,7 +71,7 @@ export default function Footer({ onNavigate, triggerToast }) {
             <li><button onClick={() => onNavigate('home')} className="footer-link-btn">Home</button></li>
             <li><button onClick={() => onNavigate('shop')} className="footer-link-btn">Shop</button></li>
             <li><button onClick={() => onNavigate('categories')} className="footer-link-btn">Categories</button></li>
-            <li><button onClick={() => onNavigate('deals')} className="footer-link-btn">Deals</button></li>
+            <li><button onClick={() => onNavigate('favourites')} className="footer-link-btn">Favourites</button></li>
             <li><button onClick={() => onNavigate('about')} className="footer-link-btn">About Us</button></li>
             <li><button onClick={() => onNavigate('contact')} className="footer-link-btn">Contact</button></li>
           </ul>

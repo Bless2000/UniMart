@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { MenuIcon, SearchIcon, UserIcon, HeartIcon, CartIcon } from './Icons';
+import NotificationsIcon from './NotificationsIcon';
 
-export default function Navbar({ activePage, onNavigate, cartCount, wishlistCount, onOpenCart }) {
+export default function Navbar({ activePage, onNavigate, cartCount, wishlistCount, notificationCount = 0, onOpenCart }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -10,7 +11,6 @@ export default function Navbar({ activePage, onNavigate, cartCount, wishlistCoun
     { id: 'home', label: 'Home' },
     { id: 'shop', label: 'Shop' },
     { id: 'categories', label: 'Categories' },
-    { id: 'deals', label: 'Deals' },
     { id: 'about', label: 'About Us' },
     { id: 'contact', label: 'Contact' }
   ];
@@ -69,11 +69,16 @@ export default function Navbar({ activePage, onNavigate, cartCount, wishlistCoun
             </button>
           )}
 
-          <button className="icon-btn" aria-label="Account" onClick={() => handleNavClick('about')}>
+          <button className="icon-btn notification-icon-btn" aria-label="Notifications" onClick={() => handleNavClick('notifications')}>
+            <NotificationsIcon />
+            {notificationCount > 0 && <span className="icon-badge">{notificationCount}</span>}
+          </button>
+
+          <button className="icon-btn" aria-label="Account" onClick={() => handleNavClick('auth')}>
             <UserIcon />
           </button>
 
-          <button className="icon-btn wishlist-icon-btn" aria-label="Wishlist" onClick={() => handleNavClick('shop')}>
+          <button className="icon-btn wishlist-icon-btn" aria-label="Favourites" onClick={() => handleNavClick('favourites')}>
             <HeartIcon filled={wishlistCount > 0} />
             {wishlistCount > 0 && <span className="icon-badge">{wishlistCount}</span>}
           </button>
@@ -100,6 +105,15 @@ export default function Navbar({ activePage, onNavigate, cartCount, wishlistCoun
                 onClick={() => handleNavClick(item.id)}
               >
                 {item.label}
+              </button>
+            ))}
+            {[['orders', 'My Orders'], ['chat', 'Messages'], ['notifications', 'Notifications'], ['transactions', 'Transaction History']].map(([id, label]) => (
+              <button
+                key={id}
+                className={`mobile-nav-link ${activePage === id ? 'active' : ''}`}
+                onClick={() => handleNavClick(id)}
+              >
+                {label}
               </button>
             ))}
           </div>

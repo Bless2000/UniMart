@@ -10,6 +10,7 @@ import users from './tables/users.js';
 import categories from './tables/categories.js';
 import disputes from './tables/disputes.js';
 import walletTransactions from './tables/wallet_transactions.js';
+import passwordResetTokens from './tables/password_reset_tokens.js';
 
 async function initializeDatabase() {
 
@@ -22,6 +23,7 @@ async function initializeDatabase() {
                  // TODO: If you want a fresh database reset every time, you could run 
                 // DROP TABLE IF EXISTS queries here in reverse-dependency order.
                     const dropTablesQuery = `
+                        DROP TABLE IF EXISTS password_reset_tokens CASCADE;
                         DROP TABLE IF EXISTS wallet_transactions CASCADE;
                         DROP TABLE IF EXISTS disputes CASCADE;
                         DROP TABLE IF EXISTS reviews CASCADE;
@@ -41,6 +43,7 @@ async function initializeDatabase() {
             // await client.query(users);
                 const createTablesQuery = `
                     ${users}
+                    ${passwordResetTokens}
                     ${categories}
                     ${wallets}
                     ${listings}

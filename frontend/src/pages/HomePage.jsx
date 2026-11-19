@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FeaturesBar from '../components/FeaturesBar';
-import { PlayIcon, HeartIcon, CartBtnIcon, StarIcon, ArrowRight, ChevronLeft, ChevronRight } from '../components/Icons';
+import { HeartIcon, CartBtnIcon, StarIcon, ArrowRight, ChevronLeft, ChevronRight } from '../components/Icons';
+import { services } from '../data/catalog';
 
 export default function HomePage({ onNavigate, onAddToCart, wishlist, onToggleWishlist, triggerToast }) {
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
-
   // Categories Data
   const categories = [
     { id: 'phones', name: 'Phones & Tablets', img: '/images/cat-phones.png' },
@@ -53,22 +52,6 @@ export default function HomePage({ onNavigate, onAddToCart, wishlist, onToggleWi
 
   return (
     <div className="page-wrapper home-page">
-      {/* Video Modal */}
-      {videoModalOpen && (
-        <div className="modal-overlay" onClick={() => setVideoModalOpen(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setVideoModalOpen(false)}>✕</button>
-            <div className="video-placeholder">
-              <div className="video-center-icon">
-                <PlayIcon />
-              </div>
-              <h3>UniMart Official Brand Video</h3>
-              <p>Discover how UniMart empowers students and campus communities.</p>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* HERO SECTION */}
       <section className="hero-section" id="home">
         <div className="hero-content">
@@ -83,10 +66,6 @@ export default function HomePage({ onNavigate, onAddToCart, wishlist, onToggleWi
             <div className="hero-actions">
               <button className="btn-primary" onClick={() => onNavigate('shop')}>
                 Shop Now
-              </button>
-              <button className="btn-video" onClick={() => setVideoModalOpen(true)}>
-                <PlayIcon />
-                <span>Watch Video</span>
               </button>
             </div>
           </div>
@@ -135,6 +114,54 @@ export default function HomePage({ onNavigate, onAddToCart, wishlist, onToggleWi
         </div>
       </section>
 
+      {/* SERVICES CATEGORY SECTION */}
+      <section className="services-section" id="services">
+        <div className="section-header">
+          <h2 className="section-title">
+            Campus <span className="highlight-yellow">Services</span>
+          </h2>
+          <button onClick={() => onNavigate('categories')} className="view-all-link">
+            View All Categories <ArrowRight />
+          </button>
+        </div>
+
+        <div className="services-grid">
+          {services.map((svc) => (
+            <div key={svc.id} className="service-card">
+              <button
+                className={`wishlist-toggle ${wishlist.has(svc.id) ? 'active' : ''}`}
+                onClick={() => onToggleWishlist(svc.id, svc.name)}
+                aria-label="Add service to wishlist"
+              >
+                <HeartIcon filled={wishlist.has(svc.id)} />
+              </button>
+
+              <button
+                className="service-open-btn"
+                onClick={() => onNavigate('product', null, { productId: svc.id })}
+              >
+                <div className="service-icon-wrap">
+                  <span className="service-emoji">{svc.emoji}</span>
+                </div>
+
+                <h3 className="service-name">{svc.name}</h3>
+              </button>
+              <p className="service-desc">{svc.description}</p>
+
+              <div className="service-footer">
+                <div className="service-pricing">
+                  <span className="current-price">{svc.price}</span>
+                  <span className="service-unit">{svc.unit}</span>
+                </div>
+                <button className="btn-add-to-cart" onClick={() => onAddToCart(svc)}>
+                  <CartBtnIcon /> Book Now
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* BEST SELLING PRODUCTS SECTION */}
       <section className="products-section" id="shop">
         <div className="section-header">
@@ -166,12 +193,21 @@ export default function HomePage({ onNavigate, onAddToCart, wishlist, onToggleWi
                   <HeartIcon filled={wishlist.has(prod.id)} />
                 </button>
 
-                <div className="product-img-wrapper">
+                <button
+                  className="product-img-wrapper product-open-btn"
+                  onClick={() => onNavigate('product', null, { productId: prod.id })}
+                  aria-label={`View ${prod.name}`}
+                >
                   <img src={prod.img} alt={prod.name} className="product-thumb" />
-                </div>
+                </button>
 
                 <div className="product-details">
-                  <h3 className="product-title">{prod.name}</h3>
+                  <h3
+                    className="product-title product-open-title"
+                    onClick={() => onNavigate('product', null, { productId: prod.id })}
+                  >
+                    {prod.name}
+                  </h3>
                   <div className="product-rating">
                     <div className="stars-row">
                       {[...Array(5)].map((_, i) => (

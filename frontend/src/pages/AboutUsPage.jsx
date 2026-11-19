@@ -9,24 +9,14 @@ import {
 export default function AboutUsPage({ onNavigate }) {
   const teamMembers = [
     {
-      name: 'Daniel Okafor',
-      role: 'CEO & Founder',
+      name: 'Amponsah Blessed',
+      role: 'Founder & CEO',
       img: '/images/team-daniel.png'
     },
     {
-      name: 'Amara Johnson',
-      role: 'Head of Operations',
+      name: 'Solomon Kwabena Agyeman',
+      role: 'Co-Founder & CTO',
       img: '/images/team-amara.png'
-    },
-    {
-      name: 'David Mensah',
-      role: 'Head of Marketing',
-      img: '/images/team-david.png'
-    },
-    {
-      name: 'Chioma Adeyemi',
-      role: 'Customer Experience Lead',
-      img: '/images/team-chioma.png'
     }
   ];
 

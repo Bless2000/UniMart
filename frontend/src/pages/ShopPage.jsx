@@ -532,12 +532,22 @@ export default function ShopPage({ onNavigate, onAddToCart, wishlist, onToggleWi
                     <HeartIcon filled={wishlist.has(prod.id)} />
                   </button>
 
-                  <div className="product-img-wrapper">
+                  <button
+                    className="product-img-wrapper product-open-btn"
+                    onClick={() => onNavigate('product', null, { productId: prod.id })}
+                    aria-label={`View ${prod.name}`}
+                  >
                     <img src={prod.img} alt={prod.name} className="product-thumb" />
-                  </div>
+                  </button>
 
                   <div className="product-details">
-                    <h3 className="product-title" title={prod.name}>{prod.name}</h3>
+                    <h3
+                      className="product-title product-open-title"
+                      title={prod.name}
+                      onClick={() => onNavigate('product', null, { productId: prod.id })}
+                    >
+                      {prod.name}
+                    </h3>
                     <div className="product-rating">
                       <div className="stars-row">
                         {[...Array(5)].map((_, i) => (
