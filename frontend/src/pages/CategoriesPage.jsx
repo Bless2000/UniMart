@@ -11,6 +11,7 @@ export default function CategoriesPage({ onNavigate }) {
     { id: 'fashion', name: 'Fashion', count: 22, img: '/images/cat-fashion.png' },
     { id: 'home', name: 'Home & Living', count: 16, img: '/images/cat-home.png' },
     { id: 'beauty', name: 'Beauty & Health', count: 14, img: '/images/cat-beauty.png' },
+    { id: 'food', name: 'Food & Health', count: 20, img: '/images/cat-food.png' },
     { id: 'gaming', name: 'Gaming', count: 12, img: '/images/cat-gaming.png' },
     { id: 'accessories', name: 'Accessories', count: 14, img: '/images/cat-accessories.png' },
     { id: 'appliances', name: 'Appliances', count: 15, img: '/images/cat-appliances.png' },
